@@ -161,9 +161,9 @@ cython_debug/
 #  option (not recommended) you can uncomment the following to ignore the entire idea folder.
 #.idea/
 
-# NODE PACKAGES!!
-./assets/node_modules/*
-./assets/dist/*
+# CUSTOM!!!!!!! 
+./BugBehemoth_FE/node_modules/*
+./BugBehemoth_FE/src/dist/*
 
 
 
