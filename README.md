@@ -5,14 +5,11 @@ Project implemented for the 1st edition of the hackaton on the Unidad Académica
 
 Currently we're utilizing Go 1.23, Tailwindcss, HTMX
 
-ON THE FIRST build, within the /assets directory, perform the following:
+ON THE FIRST build, within the /BugBehemoth_FE directory, perform the following:
 
     - npm install
-    - npm run build:css
+    - npm run buildstyles
 
-To run the Project template run
-    go run main.go
-
-Then lookup localhost:8000 in the browser and you'll see the static files being served!
+Then open /src/index.html in the browser and you'll see the Tailwindcss styles installed!
 
 
