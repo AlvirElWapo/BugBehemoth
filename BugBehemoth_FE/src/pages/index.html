@@ -4,10 +4,41 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title></title>
-    <link href="../dist/build_tailwind.css" rel="stylesheet">
+    <!--<link href="../dist/build_tailwind.css" rel="stylesheet">-->
+<script src="https://unpkg.com/htmx.org@2.0.2" integrity="sha384-Y7hw+L/jvKeWIRRkqWYfPcvVxHzVzn5REgzbawhxAuQGwX1XWe70vji+VSeHOThJ" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="/static/tailwind.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" type='text/css' href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
+    
   </head>
   <body>
-    <button class="btn btn-success">BOTON TAILWIND!!</button>
-  
+    <header class="bg-base-100 shadow-md">
+      <div class="navbar">
+        <div class="flex-1">
+          <a class="btn btn-ghost normal-case text-xl"> 
+            <i class="devicon-coffeescript-original" style="font-size:3rem;"></i>
+            Prueba de Front</a>
+        </div>
+        <div class="flex-none">
+          <ul class="menu menu-horizontal px-1">
+            <li><a>Home</a></li>
+            <li><a>About</a></li>
+            <li>
+              <button class="btn btn-primary">
+                <i class="devicon-bash-plain colored" style="font-size:2rem" ></i>
+              </button>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </header>
+    <main class="p-8">
+      <button hx-get="/api/example" hx-trigger="click" hx-target="#time-display" class="btn btn-primary">
+        Get Server Time
+      </button>
+      <div id="time-display" class="mt-4"></div>
+    </main>
+
+
   </body>
 </html>

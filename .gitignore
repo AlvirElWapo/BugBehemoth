@@ -1,6 +1,7 @@
 # CUSTOM!!!!!!! 
 BugBehemoth_FE/node_modules/*
 BugBehemoth_FE/src/dist/*
+BugBehemoth_BE/BugBehemoth_FE/**
 
 
 
