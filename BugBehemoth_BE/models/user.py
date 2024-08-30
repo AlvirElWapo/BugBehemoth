@@ -1,5 +1,6 @@
 from models.exts import db
 from models.roles import Role
+from models.departamento import Departamento
 from sqlalchemy.orm import relationship
 
 class User(db.Model):
@@ -10,10 +11,12 @@ class User(db.Model):
     password = db.Column('password', db.String(255), nullable=False)
     email = db.Column('email', db.String(50),  nullable=False)
     nombre = db.Column('nombre', db.String(50), nullable=False)
+    estatus = db.Column('estatus', db.Boolean(), nullable=False)
     id_rol = db.Column('id_rol', db.Integer(), db.ForeignKey('roles.id_rol'), nullable=False)
-
+    id_departamento = db.Column('id_departamento', db.Integer(), db.ForeignKey('departamentos.id_departamento'), nullable=False)
+    
     role = relationship(Role, backref="roluser")
-
+    departamento = relationship(Departamento, backref="depatamientoUser")
     def __repr__(self):
         return f"<Role {self.id_user}>"
     
@@ -25,6 +28,7 @@ class User(db.Model):
             'email': self.email,
             'nombre': self.nombre,
             'rol': self.role.serialize() if self.role else None,
+            'departamento': self.departamento.serialize() if self.departamento else None,
         }
     
     def save(self):

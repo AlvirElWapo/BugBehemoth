@@ -14,7 +14,7 @@ auth_ns = Namespace('auth', description="Atenticación de usaurio")
 class LoginUser(Resource):
     def post(self):
         data = request.get_json()
-        print(data);
+        print(data)
 
         if not data or not data.get('email') or not data.get('password'):
             return {'msg':'Faltan datos en la solicitud'}, 401
