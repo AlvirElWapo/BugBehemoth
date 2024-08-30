@@ -1530,49 +1530,6 @@ html {
   }
 }
 
-.glass,
-  .glass.btn-active {
-  border: none;
-  -webkit-backdrop-filter: blur(var(--glass-blur, 40px));
-          backdrop-filter: blur(var(--glass-blur, 40px));
-  background-color: transparent;
-  background-image: linear-gradient(
-        135deg,
-        rgb(255 255 255 / var(--glass-opacity, 30%)) 0%,
-        rgb(0 0 0 / 0%) 100%
-      ),
-      linear-gradient(
-        var(--glass-reflex-degree, 100deg),
-        rgb(255 255 255 / var(--glass-reflex-opacity, 10%)) 25%,
-        rgb(0 0 0 / 0%) 25%
-      );
-  box-shadow: 0 0 0 1px rgb(255 255 255 / var(--glass-border-opacity, 10%)) inset,
-      0 0 0 2px rgb(0 0 0 / 5%);
-  text-shadow: 0 1px rgb(0 0 0 / var(--glass-text-shadow-opacity, 5%));
-}
-
-@media (hover: hover) {
-  .glass.btn-active {
-    border: none;
-    -webkit-backdrop-filter: blur(var(--glass-blur, 40px));
-            backdrop-filter: blur(var(--glass-blur, 40px));
-    background-color: transparent;
-    background-image: linear-gradient(
-          135deg,
-          rgb(255 255 255 / var(--glass-opacity, 30%)) 0%,
-          rgb(0 0 0 / 0%) 100%
-        ),
-        linear-gradient(
-          var(--glass-reflex-degree, 100deg),
-          rgb(255 255 255 / var(--glass-reflex-opacity, 10%)) 25%,
-          rgb(0 0 0 / 0%) 25%
-        );
-    box-shadow: 0 0 0 1px rgb(255 255 255 / var(--glass-border-opacity, 10%)) inset,
-        0 0 0 2px rgb(0 0 0 / 5%);
-    text-shadow: 0 1px rgb(0 0 0 / var(--glass-text-shadow-opacity, 5%));
-  }
-}
-
 .btn-sm {
   height: 2rem;
   min-height: 2rem;
@@ -1733,10 +1690,6 @@ html {
   margin-bottom: 1.5rem;
 }
 
-.mt-4 {
-  margin-top: 1rem;
-}
-
 .flex {
   display: flex;
 }
@@ -1808,16 +1761,8 @@ html {
   --tw-bg-opacity: 0.6;
 }
 
-.fill-current {
-  fill: currentColor;
-}
-
 .p-4 {
   padding: 1rem;
-}
-
-.p-8 {
-  padding: 2rem;
 }
 
 .px-1 {
@@ -1829,8 +1774,18 @@ html {
   text-align: center;
 }
 
+.text-3xl {
+  font-size: 1.875rem;
+  line-height: 2.25rem;
+}
+
 .text-5xl {
   font-size: 3rem;
+  line-height: 1;
+}
+
+.text-6xl {
+  font-size: 3.75rem;
   line-height: 1;
 }
 
@@ -1850,11 +1805,6 @@ html {
 
 .normal-case {
   text-transform: none;
-}
-
-.text-black {
-  --tw-text-opacity: 1;
-  color: rgb(0 0 0 / var(--tw-text-opacity));
 }
 
 .text-neutral-content {

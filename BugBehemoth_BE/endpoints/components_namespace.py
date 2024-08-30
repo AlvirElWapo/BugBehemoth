@@ -16,6 +16,11 @@ def login_form():
       <label class="input input-bordered flex items-center gap-5 mb-2 justify-self-end">
         <input type="password" class="grow" placeholder="Password" />
       </label>
+      <div class="flex justify-end">
+        <button hx-post="/auth/login" hx-trigger="click" hx-target="#time-display" class="btn btn-primary">
+          Confirmar
+        </button>
+      </div>
     </div>
     ''')
 
@@ -42,5 +47,10 @@ def register_form():
       <label class="input input-bordered flex items-center gap-5 mb-2 justify-self-end">
         <input type="password" class="grow" placeholder="Confirm Password" />
       </label>
+      <div class="flex justify-end">
+        <button hx-post="/auth/login" hx-trigger="click" hx-target="#time-display" class="btn btn-primary">
+          Confirmar
+        </button>
+      </div>
     </div>
     ''')

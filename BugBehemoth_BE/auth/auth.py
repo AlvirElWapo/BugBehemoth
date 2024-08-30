@@ -14,6 +14,7 @@ auth_ns = Namespace('auth', description="Atenticación de usaurio")
 class LoginUser(Resource):
     def post(self):
         data = request.get_json()
+        print(data);
 
         if not data or not data.get('email') or not data.get('password'):
             return {'msg':'Faltan datos en la solicitud'}, 401
@@ -33,7 +34,6 @@ class LoginUser(Resource):
                 response = jsonify({
                     "acces_tkn": acces_tkn,
                     "rol":db_user.role.serialize() if db_user.role else None
-
                 })
                 set_refresh_cookies(response,refresh_tkn)
                 
