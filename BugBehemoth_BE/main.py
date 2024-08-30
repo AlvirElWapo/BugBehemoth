@@ -3,6 +3,7 @@ from config import config
 from flask_restx import Api
 from endpoints.example_namespace import api as example_ns
 from endpoints.time_namespace import api as time_ns
+from endpoints.components_namespace import modals_bp  # Import the Blueprint
 
 def create_app():
     app = Flask(__name__)
@@ -16,6 +17,9 @@ def create_app():
 
     api.add_namespace(example_ns, path='/api')
     api.add_namespace(time_ns, path='/api')
+
+
+    app.register_blueprint(modals_bp)
 
 
     return app
