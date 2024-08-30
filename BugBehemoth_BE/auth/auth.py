@@ -14,7 +14,6 @@ auth_ns = Namespace('auth', description="Atenticación de usaurio")
 class LoginUser(Resource):
     def post(self):
         data = request.get_json()
-        print(data)
 
         if not data or not data.get('email') or not data.get('password'):
             return {'msg':'Faltan datos en la solicitud'}, 401
@@ -33,6 +32,7 @@ class LoginUser(Resource):
                 
                 response = jsonify({
                     "acces_tkn": acces_tkn,
+                    "username":db_user.username,
                     "rol":db_user.role.serialize() if db_user.role else None
                 })
                 set_refresh_cookies(response,refresh_tkn)
@@ -71,3 +71,36 @@ class ExitUser(Resource):
         unset_jwt_cookies(response)
 
         return make_response(response,200)
+
+@auth_ns.route('/register')
+class registerUser(Resource):
+    @jwt_required()
+    def post(self):
+        data = request.get_json()
+        if (not data or not data.get('email') or not data.get('password') or not data.get('nombre') 
+            or not data.get('username') or not data.get('id_departamento') or not data.get('id_rol')):
+            return {'msg':'Faltan datos en la solicitud'}, 401
+        try:
+            if User.query.filter_by(email=data['email']).first():
+                return {'msg': 'El correo electrónico ya existe'}, 400
+            
+            if User.query.filter_by(username=data['username']).first():
+                return {'msg': 'El nombre de usuario ya existe'}, 400
+            
+            hashed_password = generate_password_hash(data['password'])
+            new_user = User(
+                email=data['email'],
+                password=hashed_password,
+                nombre=data['nombre'],
+                username=data['username'],
+                id_departamento=data['id_departamento'],
+                id_rol=data['id_rol']
+            )
+            
+            new_user.save()
+
+            return {'msg': 'Usuario registrado exitosamente'}, 201
+
+        except Exception as e:
+            return {'msg': 'Error al registrar usuario'}, 500
+        

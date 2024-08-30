@@ -27,11 +27,13 @@ class User(db.Model):
             'password': self.password,
             'email': self.email,
             'nombre': self.nombre,
+            'estatus': self.estatus,
             'rol': self.role.serialize() if self.role else None,
             'departamento': self.departamento.serialize() if self.departamento else None,
         }
     
     def save(self):
+        self.estatus=1
         db.session.add(self)
         db.session.commit()
 
