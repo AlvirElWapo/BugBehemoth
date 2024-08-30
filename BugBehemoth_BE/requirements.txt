@@ -1,2 +1,5 @@
 flask-restx
 config
+flask_sqlalchemy
+flask_jwt_extended
+pymysql
