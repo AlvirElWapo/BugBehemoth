@@ -23,7 +23,9 @@ class LoginUser(Resource):
         
         if not db_user:
             return {'msg':'Credenciales incorrectas'}, 401
-        print()
+        
+        if db_user.estatus==0:
+            return {'msg':'El usuario no esta activo contacte al administrador'}, 401
         
         try:
             if check_password_hash(db_user.password, data['password']):
