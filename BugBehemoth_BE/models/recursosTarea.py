@@ -43,11 +43,14 @@ class RecursosTarea(db.Model):
         #codigo para eliminar
         return
     
-    def update(self, id_recurso, id_tarea, cantidad, estatus):
+    def update(self, id_tarea, estatus):
         self.updated = datetime.now()
-        self.id_recurso = id_recurso
         self.id_tarea = id_tarea
-        self.cantidad = cantidad
         self.estatus = estatus
 
+        db.session.commit()
+    
+    def updateStock(self, cantidad):
+        self.cantidad = cantidad
+        
         db.session.commit()

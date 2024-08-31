@@ -18,6 +18,7 @@ class Recursos(db.Model):
             'id_recurso': self.id_recurso,
             'nombre': self.nombre,
             'cantidad_total': self.cantidad_total,
+            'cantidad_disponible': self.cantidad_disponible,
             'updated': self.updated
         }
     
@@ -33,6 +34,11 @@ class Recursos(db.Model):
         self.updated = datetime.now()
         self.nombre = nombre
         self.cantidad_total = cantidad_total
+        self.cantidad_disponible = cantidad_disponible
+
+        db.session.commit()
+
+    def updateStock(self, cantidad_disponible):
         self.cantidad_disponible = cantidad_disponible
 
         db.session.commit()

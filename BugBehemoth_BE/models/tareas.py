@@ -43,7 +43,7 @@ class Tareas(db.Model):
         #codigo para eliminar
         return
     
-    def upadte(self, id_proyecto, responsable, descripcion):
+    def update(self, id_proyecto, responsable, descripcion):
         self.updated = datetime.now()
         self.id_proyecto = id_proyecto
         self.responsable = responsable

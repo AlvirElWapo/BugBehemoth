@@ -18,6 +18,7 @@ class Role(db.Model):
         }
     
     def save(self):
+        self.estatus = 1
         db.session.add(self)
         db.session.commit()
 
@@ -28,3 +29,5 @@ class Role(db.Model):
     def update(self, rol, estatus):
         self.rol = rol
         self.estatus = estatus
+        
+        db.session.commit()
