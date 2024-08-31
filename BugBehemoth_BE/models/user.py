@@ -30,6 +30,8 @@ class User(db.Model):
             'phone_number': self.phone_number,
             'nombre': self.nombre,
             'estatus': self.estatus,
+            'id_rol':self.id_rol,
+            'id_departamento':self.id_departamento,
             'rol': self.role.serialize() if self.role else None,
             'departamento': self.departamento.serialize() if self.departamento else None,
         }
@@ -43,11 +45,12 @@ class User(db.Model):
         #codigo para eliminar
         return
     
-    def update(self, username, email, nombre, id_rol):
+    def update(self, username, email, nombre, id_rol,id_departamento):
         self.username = username
         self.email = email
         self.nombre = nombre
         self.id_rol = id_rol
+        self.id_departamento = id_departamento
         db.session.commit()
 
     def updatePass(self, password):
