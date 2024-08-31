@@ -7,6 +7,7 @@ from endpoints.time_namespace import api as time_ns
 from endpoints.components_namespace import modals_bp
 from models.exts import db
 from auth.auth import auth_ns
+from endpoints.userEndpoint import user_ns
 
 def create_app(config):
     app = Flask(__name__)
@@ -20,8 +21,9 @@ def create_app(config):
 
     api=Api(app, doc='/docs')
     api.add_namespace(auth_ns)
+    api.add_namespace(user_ns)
 
-
+    
     app.register_blueprint(modals_bp)
     return app
 

@@ -10,6 +10,7 @@ class User(db.Model):
     username = db.Column('username', db.String(50), nullable=False)
     password = db.Column('password', db.String(255), nullable=False)
     email = db.Column('email', db.String(50),  nullable=False)
+    phone_number = db.Column('phone_number', db.String(15), nullable=True)
     nombre = db.Column('nombre', db.String(50), nullable=False)
     estatus = db.Column('estatus', db.Boolean(), nullable=False)
     id_rol = db.Column('id_rol', db.Integer(), db.ForeignKey('roles.id_rol'), nullable=False)
@@ -25,8 +26,8 @@ class User(db.Model):
         return{
             'id_user': self.id_user,
             'username': self.username,
-            'password': self.password,
             'email': self.email,
+            'phone_number': self.phone_number,
             'nombre': self.nombre,
             'estatus': self.estatus,
             'rol': self.role.serialize() if self.role else None,

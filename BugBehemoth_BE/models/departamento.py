@@ -17,8 +17,7 @@ class Departamento(db.Model):
             'id_departamento': self.id_departamento,
             'nombre': self.nombre,
             'estatus': self.estatus,
-            'updatesd': self.updatesd,
-            'user': self.user.serialize() if self.user else None,
+            'updatesd': self.updatesd
         }
     
     def save(self):
