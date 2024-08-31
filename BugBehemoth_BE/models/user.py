@@ -17,6 +17,7 @@ class User(db.Model):
     
     role = relationship(Role, backref="roluser")
     departamento = relationship(Departamento, backref="depatamientoUser")
+    
     def __repr__(self):
         return f"<Role {self.id_user}>"
     
