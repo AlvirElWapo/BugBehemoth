@@ -12,8 +12,9 @@ class RecursosTarea(db.Model):
     id_tarea = db.Column('id_tarea', db.Integer(),  db.ForeignKey('tareas.id_tarea'), nullable=False)
     cantidad = db.Column('cantidad', db.Integer(), nullable=False)
     estatus = db.Column('estatus', db.Boolean(), nullable=False)
-    created = db.Column('created', db.Date(), default=datetime.now())
-    updated = db.Column('updated', db.Date(), defualt=datetime.now())
+    created = db.Column('created', db.DateTime(), default=datetime.now)
+    updated = db.Column('updated', db.DateTime(), default=datetime.now)
+
 
     recurso = relationship(Recursos, backref="recursosRecursosTareas")
     tarea = relationship(Tareas, backref="tareaRecursosTareas")

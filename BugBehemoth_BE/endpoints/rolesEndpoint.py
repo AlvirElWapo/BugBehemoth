@@ -5,7 +5,7 @@ from models.roles import Role
 
 roles_ns = Namespace('roles', description="endpoint de roles")
 
-roles_ns.route('/all')
+@roles_ns.route('/all')
 class RolesResource(Resource):
     @jwt_required()
     def get(self):

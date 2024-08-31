@@ -5,7 +5,7 @@ from models.tareas import Tareas
 
 tareas_ns = Namespace('tareas', description="endpoint de tareas")
 
-tareas_ns.route('/all')
+@tareas_ns.route('/all')
 class TareasResource(Resource):
     @jwt_required()
     def get(self):

@@ -6,7 +6,7 @@ class Recursos(db.Model):
 
     id_recurso = db.Column('id_recurso', db.Integer(), primary_key=True)
     nombre = db.Column('nombre', db.String(255), nullable=False)
-    cantidad_total = db.Colum('cantidad_total', db.Integer(),nullable=False)
+    cantidad_total = db.Column('cantidad_total', db.Integer(),nullable=False)
     cantidad_disponible = db.Column('cantidad_disponible', db.Integer(), nullable=False)
     updated = db.Column('updated', db.Date(), default=datetime.now())
 
