@@ -9,11 +9,11 @@ class Proyecto(db.Model):
     id_proyecto = db.Column('id_proyecto', db.Integer(), primary_key=True)
     nombre = db.Column('nombre', db.String(255), nullable=False)
     id_user_director = db.Column('id_user_director', db.Integer(), db.ForeignKey('users.id_user'), nullable=False)
-    fecha_creado = db.Column('fecha_creado', db.Date(), nullable=False)
+    fecha_creado = db.Column('fecha_creado', db.DateTime(), default=datetime.now())
     fecha_expira = db.Column('fecha_expira', db.Date(), nullable=False)
     descripcion = db.Column('descripcion', db.String(255), nullable=False)
     estatus = db.Column('estatus', db.Boolean(), nullable=False)
-    updatesd = db.Column('updatesd', db.Date(), nullable=False)
+    updatesd = db.Column('updatesd', db.DateTime(), default=datetime.now())
 
     user = relationship(User,backref="usersProyectos")
 

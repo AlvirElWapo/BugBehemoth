@@ -9,8 +9,8 @@ class Eventos(db.Model):
     fecha = db.Column('fecha', db.Date(), nullable=False)
     descripcion = db.Column('descripcion', db.String(255), nullable=False)
     estatus = db.Column('estatus', db.Boolean, nullable=False)
-    created = db.Column('created', db.Date(), default=datetime.now())
-    updated = db.Column('updated', db.Date(), default=datetime.now())
+    created = db.Column('created', db.DateTime(), default=datetime.now())
+    updated = db.Column('updated', db.DateTime(), default=datetime.now())
 
     def __repr__(self):
         return f"<Eventos {self.id_evento}>"

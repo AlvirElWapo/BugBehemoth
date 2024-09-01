@@ -21,6 +21,7 @@ class Departamento(db.Model):
         }
     
     def save(self):
+        self.estatus = 1
         db.session.add(self)
         db.session.commit()
 
@@ -28,6 +29,8 @@ class Departamento(db.Model):
         #codigo para eliminar
         return
     
-    def update(self):
+    def update(self, nombre, estatus):
+        self.nombre = nombre
+        self.estatus = estatus
         
         db.session.commit()

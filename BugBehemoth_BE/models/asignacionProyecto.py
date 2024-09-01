@@ -11,8 +11,8 @@ class AsignacionProyecto(db.Model):
     id_user = db.Column('id_user' ,db.Integer(), db.ForeignKey('users.id_user'), nullable=False)
     id_proyecto = db.Column('id_proyecto', db.Integer, db.ForeignKey('proyectos.id_proyecto'), nullable=False)
     estatus = db.Column('estatus', db.Boolean(), nullable=False)
-    created = db.Column('created', db.Date(), nullable=False)
-    updated = db.Column('updated', db.Date(), nullable=False)
+    created = db.Column('created', db.DateTime(), default=datetime.now())
+    updated = db.Column('updated', db.DateTime(), default=datetime.now())
 
     user = relationship(User,backref="asginacionProyectosUsers")
     proyecto = relationship(Proyecto,backref="asginacionProyectosProyecto")
@@ -41,8 +41,9 @@ class AsignacionProyecto(db.Model):
         #codigo para eliminar
         return
     
-    def update(self, id_user, id_proyecto):
+    def update(self, id_user, id_proyecto, estatus):
         self.id_user = id_user
         self.id_proyecto = id_proyecto
+        self.estatus = estatus
 
         db.session.commit()

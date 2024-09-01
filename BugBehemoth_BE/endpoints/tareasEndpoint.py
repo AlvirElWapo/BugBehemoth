@@ -74,6 +74,8 @@ class TareaResource(Resource):
 
             tarea.update(self, new_id_proyecto, new_responsable, new_descripcion)
 
+            return {'msg': 'Actualización de datos exitosamente'}, 200
+
         except Exception as e:
             print(f"Error: {e}")
             return {'message': 'No se pudo actualizar la tarea'}, 500

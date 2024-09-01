@@ -11,8 +11,8 @@ class Alertas(db.Model):
     fecha_alerta = db.Column('fecha_alerta',db.Date(), nullable=False)
     tipo = db.Column('tipo', db.Integer(), nullable=False)
     estatus = db.Column('estatus', db.Boolean(), nullable=False)
-    created = db.Column('created', db.Date(), default=datetime.now())
-    updated = db.Column('updated', db.Date(), default=datetime.now())
+    created = db.Column('created', db.DateTime(), default=datetime.now())
+    updated = db.Column('updated', db.DateTime(), default=datetime.now())
 
     user = relationship(User,backref="alertasUser")
 

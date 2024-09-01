@@ -10,8 +10,8 @@ class Invitaciones(db.Model):
     id = db.Column('id', db.Integer(), primary_key=True)
     id_evento = db.Column('id_evento', db.Integer(), db.ForeignKey('eventos.id_evento'), nullable=False)
     id_invitado = db.Column('id_invitado', db.Integer, db.ForeignKey('users.id_user'), nullable=False)
-    created = db.Column('created', db.Date(), default=datetime.now())
-    updated = db.Column('updated', db.Date(), default=datetime.now())
+    created = db.Column('created', db.DateTime(), default=datetime.now())
+    updated = db.Column('updated', db.DateTime(), default=datetime.now())
 
     evento = relationship(Eventos, backref="invitacionesEvento")
     user = relationship(User, backref="invitacionesUser")

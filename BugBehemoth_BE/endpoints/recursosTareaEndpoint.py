@@ -117,6 +117,8 @@ class RecursoTareaAdd(Resource):
             RecursosTarea.updateStock(self, new_cantidad) 
             recurso.updateStock(self, resta)
 
+            return {'msg': 'Actualización de datos exitosamente'}, 200
+
         except Exception as e:
             print(f"Error: {e}")
             return {'msg': 'No se pudo actualizar el recurso de tarea'}, 500
@@ -151,6 +153,8 @@ class RecursoTareaQuitar(Resource):
             RecursosTarea.updateStock(self, new_cantidad) 
             recurso.updateStock(self, resta)
 
+            return {'msg': 'Actualización de datos exitosamente'}, 200
+        
         except Exception as e:
             print(f"Error: {e}")
             return {'msg': 'No se pudo actualizar el recurso de tarea'}, 500
